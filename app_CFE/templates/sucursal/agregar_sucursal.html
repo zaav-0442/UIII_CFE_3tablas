@@ -1,0 +1,21 @@
+{% extends 'base.html' %}
+{% block content %}
+<div class="card p-4">
+    <h3 class="text-center text-success mb-3">Agregar Nueva Sucursal</h3>
+    <form method="POST">
+        {% csrf_token %}
+        <div class="row g-3">
+        <div class="col-md-6"><input type="text" name="nombre" class="form-control" placeholder="Nombre"></div>
+        <div class="col-md-6"><input type="text" name="clave" class="form-control" placeholder="Clave"></div>
+        <div class="col-md-12"><input type="text" name="direccion" class="form-control" placeholder="Dirección"></div>
+        <div class="col-md-6"><input type="text" name="telefono" class="form-control" placeholder="Teléfono"></div>
+        <div class="col-md-6"><input type="text" name="ciudad" class="form-control" placeholder="Ciudad"></div>
+        <div class="col-md-6"><input type="text" name="estado" class="form-control" placeholder="Estado"></div>
+        <div class="col-md-6"><input type="date" name="fecha_apertura" class="form-control" placeholder="Fecha de Apertura"></div>
+        </div>
+        <div class="text-center mt-4">
+        <button class="btn btn-custom px-5">Guardar</button>
+        </div>
+    </form>
+</div>
+{% endblock %}

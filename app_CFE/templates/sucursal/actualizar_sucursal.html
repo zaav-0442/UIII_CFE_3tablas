@@ -1,0 +1,21 @@
+{% extends 'base.html' %}
+{% block content %}
+<div class="card p-4">
+    <h3 class="text-center text-success mb-3">Actualizar Sucursal</h3>
+    <form method="POST" action="{% url 'realizar_actualizacion_sucursal' sucursal.id %}">
+        {% csrf_token %}
+        <div class="row g-3">
+        <div class="col-md-6"><input type="text" name="nombre" class="form-control" value="{{ sucursal.nombre }}"></div>
+        <div class="col-md-6"><input type="text" name="clave" class="form-control" value="{{ sucursal.clave }}"></div>
+        <div class="col-md-12"><input type="text" name="direccion" class="form-control" value="{{ sucursal.direccion }}"></div>
+        <div class="col-md-6"><input type="text" name="telefono" class="form-control" value="{{ sucursal.telefono }}"></div>
+        <div class="col-md-6"><input type="text" name="ciudad" class="form-control" value="{{ sucursal.ciudad }}"></div>
+        <div class="col-md-6"><input type="text" name="estado" class="form-control" value="{{ sucursal.estado }}"></div>
+        <div class="col-md-6"><input type="date" name="fecha_apertura" class="form-control" value="{{ sucursal.fecha_apertura|date:'Y-m-d' }}"></div>
+        </div>
+        <div class="text-center mt-4">
+        <button class="btn btn-custom px-5">Actualizar</button>
+        </div>
+    </form>
+</div>
+{% endblock %}

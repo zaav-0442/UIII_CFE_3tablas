@@ -1,0 +1,54 @@
+{% extends 'base.html' %}
+{% block content %}
+<div class="container mt-5">
+    <h2 class="text-success text-center mb-4">Agregar Nuevo Domicilio</h2>
+    <form method="POST" class="border p-4 rounded shadow">
+        {% csrf_token %}
+        <div class="row mb-3">
+            <div class="col">
+                <label>Calle:</label>
+                <input type="text" name="calle" class="form-control" required>
+            </div>
+            <div class="col">
+                <label>Número:</label>
+                <input type="text" name="numero" class="form-control" required>
+            </div>
+        </div>
+        <div class="row mb-3">
+            <div class="col">
+                <label>Colonia:</label>
+                <input type="text" name="colonia" class="form-control" required>
+            </div>
+            <div class="col">
+                <label>Ciudad:</label>
+                <input type="text" name="ciudad" class="form-control" required>
+            </div>
+        </div>
+        <div class="mb-3">
+            <label>Código Postal:</label>
+            <input type="text" name="codigo_postal" class="form-control" required>
+        </div>
+        <div class="mb-3">
+            <label>Titular:</label>
+            <input type="text" name="titular" class="form-control" required>
+        </div>
+        <div class="mb-3">
+            <label>Fecha de Registro:</label>
+            <input type="date" name="fecha_registro" class="form-control" required>
+        </div>
+        <div class="mb-3">
+            <label>Empleados Asignados:</label>
+            <select name="empleados" class="form-select" multiple>
+                {% for e in empleados %}
+                <option value="{{ e.id }}">{{ e.nombre }} {{ e.apellido }}</option>
+                {% endfor %}
+            </select>
+            <small class="text-muted">Mantén presionada la tecla Ctrl (Cmd en Mac) para seleccionar varios.</small>
+        </div>
+        <div class="text-center">
+            <button type="submit" class="btn btn-success">Guardar</button>
+            <a href="{% url 'ver_domicilios' %}" class="btn btn-secondary">Cancelar</a>
+        </div>
+    </form>
+</div>
+{% endblock %}
